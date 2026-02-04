@@ -39,6 +39,11 @@
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
         .mobile-menu-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -49,7 +54,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2.5rem;
+            gap: 2rem;
         }
         
         .mobile-menu-overlay.active { display: flex; }
@@ -69,6 +74,17 @@
             box-shadow: 0 0 15px #6366f1;
             height: 20px;
         }
+
+        .portfolio-item {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .portfolio-item img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -79,8 +95,10 @@
     <nav class="fixed top-0 w-full z-50 bg-[#030305]/60 backdrop-blur-lg border-b border-white/5">
         <div class="flex justify-between items-center p-6 max-w-7xl mx-auto">
             <a href="#" class="text-xl md:text-2xl font-black tracking-tighter">M2COSMOS</a>
-            <div class="hidden md:flex text-xs font-bold uppercase tracking-widest text-zinc-400 gap-12">
+            <div class="hidden md:flex text-[10px] font-bold uppercase tracking-widest text-zinc-400 gap-8 lg:gap-12">
                 <a href="#philosophy" class="hover:text-indigo-300 transition">Philosophy</a>
+                <a href="#features" class="hover:text-indigo-300 transition">Features</a>
+                <a href="#portfolio" class="hover:text-indigo-300 transition">Portfolio</a>
                 <a href="#roadmap" class="hover:text-indigo-300 transition">Roadmap</a>
                 <a href="mailto:info@m2cosmos.com" class="text-white border-b border-indigo-500 pb-1">Contact</a>
             </div>
@@ -91,10 +109,12 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu-overlay">
         <button id="menu-close" class="absolute top-8 right-8 text-white text-3xl">&times;</button>
         <a href="#philosophy" class="text-2xl font-bold nav-link">Philosophy</a>
+        <a href="#features" class="text-2xl font-bold nav-link">Features</a>
+        <a href="#portfolio" class="text-2xl font-bold nav-link">Portfolio</a>
         <a href="#roadmap" class="text-2xl font-bold nav-link">Roadmap</a>
         <a href="mailto:info@m2cosmos.com" class="text-2xl font-bold text-indigo-400 nav-link">Contact</a>
     </div>
@@ -128,22 +148,76 @@
         </div>
     </section>
 
-    <!-- Roadmap (New Content) -->
-    <section id="roadmap" class="py-32 bg-white/[0.01] relative z-10">
+    <!-- Features Section (New) -->
+    <section id="features" class="py-32 bg-white/[0.01] border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center">Strategic Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl mb-6">💻</div>
+                    <h3 class="text-xl font-bold mb-4">Data Driven Business</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">광고 성과 측정 및 정밀 분석을 통해 비즈니스의 모든 의사결정을 데이터 기반으로 전환합니다.</p>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl mb-6">🎨</div>
+                    <h3 class="text-xl font-bold mb-4">AI Driven Business</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">맞춤형 AI 모델 트레이닝과 업무 자동화 구축으로 압도적인 효율성과 확장성을 제공합니다.</p>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl mb-6">🚀</div>
+                    <h3 class="text-xl font-bold mb-4">Sales Optimization</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">세일즈 리드 타임을 단축하고 전환 성과를 극대화하여 실제적인 수익 성장을 견인합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (New) -->
+    <section id="portfolio" class="py-32 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16">Global Portfolio</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-item glass-card p-4">
+                    <div class="aspect-video bg-zinc-900 rounded mb-4 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-bold">Project Alpha</div>
+                    </div>
+                    <h4 class="font-bold mb-2">Digital Transformation</h4>
+                    <p class="text-xs text-zinc-500">20년 이상의 IT/디지털 광고 경험을 바탕으로 한 사업 전략 고도화</p>
+                </div>
+                <div class="portfolio-item glass-card p-4">
+                    <div class="aspect-video bg-zinc-900 rounded mb-4 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-bold">Project Beta</div>
+                    </div>
+                    <h4 class="font-bold mb-2">AI Workflow Engine</h4>
+                    <p class="text-xs text-zinc-500">글로벌 성장 프로젝트 리더십을 통한 AI 기반 업무 혁신 사례</p>
+                </div>
+                <div class="portfolio-item glass-card p-4">
+                    <div class="aspect-video bg-zinc-900 rounded mb-4 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-indigo-600/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-bold">Project Gamma</div>
+                    </div>
+                    <h4 class="font-bold mb-2">Wealth Automation</h4>
+                    <p class="text-xs text-zinc-500">데이터 기반의 비즈니스 리부팅을 통한 수익 자동화 파이프라인</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="py-32 border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <h2 class="text-3xl md:text-5xl font-bold mb-20 text-center">The Cosmic Roadmap</h2>
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="roadmap-step">
                     <h3 class="text-xl font-bold mb-4 text-indigo-300">01. Singularity</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">개별 비즈니스 로직에 AI를 주입하여 사고의 밀도를 극대화하고, 기존 시장의 한계를 돌파하는 특이점을 형성합니다.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed">비즈니스 로직에 AI를 주입하여 사고의 밀도를 극대화하고, 기존 시장의 한계를 돌파하는 특이점을 형성합니다.</p>
                 </div>
                 <div class="roadmap-step">
                     <h3 class="text-xl font-bold mb-4 text-indigo-300">02. Expansion</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">검증된 가설을 바탕으로 AI 에이전트 시스템을 구축하여 수익 구조를 자동화하고, 우주적 규모로 팽창시킵니다.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed">검증된 가설을 바탕으로 AI 에이전트 시스템을 구축하여 수익 구조를 자동화하고 우주적 규모로 팽창시킵니다.</p>
                 </div>
                 <div class="roadmap-step">
                     <h3 class="text-xl font-bold mb-4 text-indigo-300">03. Equilibrium</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">인간의 직관과 AI의 연산이 완벽한 균형을 이루는 부의 생태계를 완성하여 지속 가능한 가치를 창출합니다.</p>
+                    <p class="text-zinc-500 text-sm leading-relaxed">인간의 직관과 AI의 연산이 균형을 이루는 부의 생태계를 완성하여 지속 가능한 가치를 창출합니다.</p>
                 </div>
             </div>
         </div>
@@ -154,7 +228,6 @@
     </footer>
 
     <script>
-        // UI Interaction
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -164,7 +237,6 @@
         menuClose.onclick = () => mobileMenu.classList.remove('active');
         navLinks.forEach(l => l.onclick = () => mobileMenu.classList.remove('active'));
 
-        // Animation Engines
         const nCanvas = document.getElementById('nebula-canvas');
         const sCanvas = document.getElementById('star-canvas');
         const nCtx = nCanvas.getContext('2d');
@@ -188,13 +260,17 @@
         window.addEventListener('touchstart', updateMouse, { passive: true });
         window.addEventListener('touchend', () => { mouse.x = -1000; mouse.y = -1000; });
 
-        // Nebula
         const nebula = Array.from({ length: 3 }, () => ({
             x: Math.random() * w, y: Math.random() * h,
             r: Math.random() * w * 0.7 + w * 0.3,
             c: Math.random() > 0.5 ? 'rgba(41, 67, 92, 0.05)' : 'rgba(68, 45, 82, 0.05)',
             vx: Math.random() * 0.4 - 0.2, vy: Math.random() * 0.4 - 0.2
         }));
+
+        const stars = Array.from({ length: 180 }, () => {
+            const x = Math.random() * w; const y = Math.random() * h;
+            return { x, y, curX: x, curY: y, s: Math.random() * 1.5, o: Math.random() * 0.8 + 0.2 };
+        });
 
         function draw() {
             nCtx.clearRect(0, 0, w, h);
@@ -213,23 +289,15 @@
                 const dx = mouse.x - s.x; const dy = mouse.y - s.y;
                 const d = Math.sqrt(dx*dx + dy*dy);
                 if (d < 250) {
-                    s.curX += (mouse.x - s.curX) * 0.05;
-                    s.curY += (mouse.y - s.curY) * 0.05;
+                    s.curX += (mouse.x - s.curX) * 0.05; s.curY += (mouse.y - s.curY) * 0.05;
                 } else {
-                    s.curX += (s.x - s.curX) * 0.05;
-                    s.curY += (s.y - s.curY) * 0.05;
+                    s.curX += (s.x - s.curX) * 0.05; s.curY += (s.y - s.curY) * 0.05;
                 }
                 sCtx.fillStyle = `rgba(255,255,255,${s.o})`;
                 sCtx.beginPath(); sCtx.arc(s.curX, s.curY, s.s, 0, Math.PI*2); sCtx.fill();
             });
             requestAnimationFrame(draw);
         }
-
-        const stars = Array.from({ length: 180 }, () => {
-            const x = Math.random() * w; const y = Math.random() * h;
-            return { x, y, curX: x, curY: y, s: Math.random() * 1.5, o: Math.random() * 0.8 + 0.2 };
-        });
-
         draw();
     </script>
 </body>
