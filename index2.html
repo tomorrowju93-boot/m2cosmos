@@ -134,8 +134,16 @@
         <div class="max-w-4xl mx-auto px-6 md:px-8">
             <div class="glass-card p-4 md:p-8 rounded-3xl overflow-hidden shadow-2xl shadow-indigo-500/10">
                 <!-- Image Container -->
-                <div class="mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-inner">
-                    <img src="assets/mou_photo.jpg" alt="M2COSMOS MOU Partnership" class="w-full h-auto object-cover hover:scale-105 transition duration-700">
+                <div class="mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-inner relative group">
+                    <!-- Celebration Effects -->
+                    <div class="absolute inset-0 z-20 pointer-events-none">
+                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div class="absolute top-4 right-4 bg-indigo-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.8)] tracking-widest animate-bounce">STRATEGIC ALLIANCE 2026</div>
+                    </div>
+                    <!-- Particle Overlay (CSS-only approximation) -->
+                    <div class="absolute inset-0 z-10 opacity-40 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle,_#fff_1px,_transparent_1px)] bg-[size:20px_20px] mix-blend-overlay"></div>
+                    
+                    <img src="assets/mou_photo.jpg" alt="M2COSMOS MOU Partnership" class="w-full h-auto object-cover group-hover:scale-105 group-hover:brightness-110 transition duration-700 shadow-[0_0_30px_rgba(99,102,241,0.2)]">
                 </div>
                 
                 <!-- Content -->
